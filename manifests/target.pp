@@ -1,9 +1,10 @@
 class deployment::target (
-	$user   = 'deploy',
-	$uid    = undef,
-	$gid    = undef,
-	$home   = '/var/lib/deploy',
-	$groups = undef,
+	$user    = 'deploy',
+	$uid     = undef,
+	$gid     = undef,
+	$home    = '/var/lib/deploy',
+	$groups  = undef,
+	$sudo_as = [],
 ) {
 	user { $user:
 		ensure  => present,
@@ -39,4 +40,8 @@ class deployment::target (
 	}
 
 	deployment::key { $user: }
+
+	sudo::conf {
+		content => template('deployment/sudo.erb'),
+	}
 }
