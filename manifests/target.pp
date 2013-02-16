@@ -41,7 +41,7 @@ class deployment::target (
 
 	deployment::key { $user: }
 
-	sudo::conf {
+	sudo::conf { $user:
 		content => template('deployment/sudo.erb'),
 	}
 }
