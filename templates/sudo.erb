@@ -1,4 +1,4 @@
-<%- if not sudo_as.empty? -%>
-Runas_Alias	DEPLOYUSERS = <%= sudo_as.join ',' %>
-<%= user %>	ALL = (DEPLOYUSERS) NOPASSWD: ALL
+<%- if not @sudo_as.empty? -%>
+Runas_Alias	DEPLOYUSERS = <%= @sudo_as.join ',' %>
+<%= @user %>	ALL = (DEPLOYUSERS) NOPASSWD: ALL
 <%- end -%>
