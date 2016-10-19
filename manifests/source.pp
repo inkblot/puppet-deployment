@@ -19,13 +19,13 @@ define deployment::source (
 
 	file { "${real_home}/.ssh":
 		ensure => directory,
-		mode   => 0700,
+		mode   => '0700',
 	}
 
 	if deployment_key('exists') {
 		file { "${real_home}/.ssh/id_deploy":
 			content => deployment_key('private'),
-			mode    => 0600;
+			mode    => '0600';
 		}
 	}
 }

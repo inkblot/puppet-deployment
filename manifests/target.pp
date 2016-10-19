@@ -29,14 +29,14 @@ class deployment::target (
 			ensure => directory,
 			owner  => $user,
 			group  => $user,
-			mode   => 0700;
+			mode   => '0700';
 
 		"${user} ssh directory":
 			path   => "${home}/.ssh",
 			ensure => directory,
 			owner  => $user,
 			group  => $user,
-			mode   => 0700;
+			mode   => '0700';
 	}
 
 	deployment::key { $user: }
